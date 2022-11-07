@@ -1,0 +1,53 @@
+﻿@using EntityLayer.Concrete
+@model List<Orders>
+@{
+    ViewData["Title"] = "viewOrders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <a asp-action="AddOrder" class="btn btn-outline-warning">Yeni Sipariş Ekle</a>
+        </div>
+    </div>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Müşteri</th>
+                <th scope="col">Ürün</th>
+                <th scope="col">Adet</th>
+                <!--<th scope="col">Durum</th>-->
+                <th scope="col">Sil</th>
+                <th scope="col">Güncelle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td scope="row"></td>
+                    <td scope="row">@item.siparis_id</td>
+                    <td scope="row">@item.siparis_tarih</td>
+                    <td scope="row">@item.adet</td>
+                    
+                    <td>
+                        <a asp-action="DeleteCustomer" asp-route-id="@item.siparis_id" class="btn btn-outline-danger">Sil</a>
+                    </td>
+                    <td>
+                        <a asp-action="UpdateCustomer" asp-route-id="@item.siparis_id" class="btn btn-outline-success">Güncelle</a>
+                    </td>
+                </tr>
+
+
+            }
+
+
+        </tbody>
+    </table>
+</div>
+

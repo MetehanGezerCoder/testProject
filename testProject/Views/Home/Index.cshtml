@@ -1,0 +1,45 @@
+﻿@using EntityLayer.Concrete.SP
+@model List<_spSonSatilanUrunler>;
+@{
+    ViewData["Title"] = "Home Page";
+}
+<head>
+    <style>
+        .uppercase {
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Ürün</th>
+            <th scope="col">Fiyat</th>
+            <th scope="col">Kategori</th>
+            <th scope="col">Sipariş NO</th>
+            <th scope="col">Adet</th>
+            <th scope="col">Sipariş Tarih</th>
+            <th scope="col">Müşteri Soyad</th>
+            <th scope="col">Müşteri Meslek</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td scope="row" class="uppercase">@item.urun_baslik</td>
+                <td scope="row">@item.urun_fiyat</td>
+                <td scope="row" class="uppercase">@item.kategori_ad</td>
+                <td scope="row" class="uppercase">@item.siparis_no</td>
+                <td scope="row">@item.adet</td>
+                <td scope="row">@item.siparis_tarih</td>
+                <td scope="row" class="uppercase">@item.musteribilgi</td>
+                <td scope="row" class="uppercase">@item.meslek_name</td>
+            </tr>
+
+
+        }
+
+
+    </tbody>
+</table>

@@ -1,0 +1,29 @@
+﻿@model EntityLayer.Concrete.Customers;
+@{
+    ViewData["Title"] = "AddCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<form method="post">
+    @Html.Label("Mail Adresi")
+    @Html.TextBoxFor(x => x.musteri_mail, new {@class = "form-control"})
+    <br />
+    @Html.Label("Müşteri Ad")
+    @Html.TextBoxFor(x => x.musteri_ad, new {@class = "form-control"})
+    <br />
+    @Html.Label("Müşteri Soyad")
+    @Html.TextBoxFor(x => x.musteri_soyad, new {@class = "form-control"})
+    <br />
+    @Html.Label("Müşteri Şifre")
+    @Html.PasswordFor(x => x.musteri_sifre, new {@class = "form-control", Textmode = "Password"}) 
+     <br />
+    @Html.TextBoxFor(x => x.kayit_tarih, new {@class = "form-control", @hidden="true", @value=ViewBag.date, ViewContext=ViewBag.date})
+    <br />
+    @Html.Label("Meslek Seçiniz")
+    @Html.DropDownListFor(x=>x.Jobmeslek_id, (List<SelectListItem>)ViewBag.v,new {@class="form-control"})
+    <br/>
+    <button class="btn btn-success">Kaydet</button>
+</form>
+
